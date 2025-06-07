@@ -1,0 +1,41 @@
+<section
+  class="bg-gray-800 w-full h-screen flex flex-col items-center justify-center lg:px-10"
+>
+  <div class="bg-gray-700 p-10 w-full lg:w-1/2 rounded-lg shadow-lg">
+    <h1 class="text-center text-white text-2xl mb-5">Creación de usuario</h1>
+
+    <div class="flex flex-col mb-3">
+      <input
+        [(ngModel)]="username"
+        id="username"
+        type="text"
+        placeholder="Nombre de usuario"
+        class="h-10 text-gray-700 px-3"
+        required
+      />
+      <input
+        [(ngModel)]="email"
+        id="email"
+        type="text"
+        placeholder="Correo"
+        class="my-3 h-10 text-gray-700 px-3"
+      />
+      <input
+        [(ngModel)]="password"
+        id="password"
+        type="text"
+        placeholder="Contraseña"
+        class="h-10 text-gray-700 px-3"
+      />
+    </div>
+
+    <div class="flex justify-center">
+      <button
+        (click)="addUser()"
+        class="bg-green-600 text-white p-2 mx-1 rounded-lg"
+      >
+        Crear
+      </button>
+    </div>
+  </div>
+</section>

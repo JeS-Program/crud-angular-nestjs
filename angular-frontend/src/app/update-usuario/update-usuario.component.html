@@ -1,0 +1,47 @@
+<section
+  class="bg-gray-800 w-full h-screen flex flex-col items-center justify-center lg:px-10"
+>
+  <div class="bg-gray-700 p-10 w-full lg:w-1/2 shadow-lg rounded-lg">
+    <h1 class="text-center text-white text-2xl mb-5">Modificando usuario</h1>
+
+    <div class="flex flex-col mb-3">
+      <input
+        [(ngModel)]="username"
+        id="username"
+        type="text"
+        placeholder="Nombre de usuario"
+        class="h-10 text-gray-700 px-3"
+      />
+      <input
+        [(ngModel)]="email"
+        id="email"
+        type="text"
+        placeholder="Correo"
+        class="my-3 h-10 text-gray-700 px-3"
+      />
+      <input
+        [(ngModel)]="password"
+        id="password"
+        type="text"
+        placeholder="Contraseña"
+        class="h-10 text-gray-700 px-3"
+      />
+    </div>
+
+    <div class="flex justify-center">
+      <button
+        (click)="updateUsuario()"
+        class="bg-blue-500 p-2 mx-1 rounded-lg w-1/2 text-white"
+      >
+        Modificar
+      </button>
+
+      <button
+        (click)="cancelUpdate()"
+        class="bg-red-400 p-2 mx-1 rounded-lg w-1/2 text-white"
+      >
+        Cancelar
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+
+<nav class="absolute h-20 w-full flex justify-end items-center text-white pr-10" 
+[ngClass]="{'absolute': isHomePage, 'bg-gray-900': !isHomePage}">
+    <a href="/" class=" mx-3 lg:mx-5">Inicio</a>
+    <a href="/users" class="mx-3 lg:mx-5" >Usuarios</a>
+    <a href="/users/create" class="mx-3 lg:mx-5">Crear usuario</a>
+</nav>
+
+<router-outlet />

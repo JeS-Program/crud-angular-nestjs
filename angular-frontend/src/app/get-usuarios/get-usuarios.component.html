@@ -1,0 +1,75 @@
+<section
+  class="bg-gray-800 w-full h-screen flex flex-col items-center justify-center lg:px-10"
+>
+  <!-- <h1 class="text-white text-2xl">Usuarios Registrados</h1> -->
+  @if (usuarios.length === 0) {
+  <h1 class="text-center text-2xl w-1/2 p-10 lg:py-2 text-white bg-gray-700">
+    No hay usuarios registrados
+  </h1>
+  } @else {
+  <div
+    class="bg-gray-700 w-full lg:h-full my-10 text-white shadow-lg rounded-lg"
+  >
+    <div class="overflow-x-auto">
+      <table class="w-full text-center my-2">
+        <thead>
+          <tr class="border-b-2 border-gray-600">
+            <th class="p-2">N°</th>
+            <th class="p-2">Usuario</th>
+            <th class="p-2">Correo</th>
+            <th class="p-2">Contraseña</th>
+            <th class="p-2">Funciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (usuario of usuarios; track $index) {
+
+          <tr class="border-b border-gray-600 hover:bg-gray-800">
+            <td class="p-2">{{ $index + 1 }}</td>
+            <td class="p-2">{{ usuario.username }}</td>
+            <td class="p-2">{{ usuario.email }}</td>
+            <td class="p-2">{{ usuario.password }}</td>
+            <td class="p-2 flex justify-evenly">
+              <a
+                [routerLink]="['/users/edit', usuario.id]"
+                class="bg-blue-500 p-2 rounded-lg lg:w-1/3 text-center"
+                >Modificar
+              </a>
+              <button
+                (click)="modalEliminarVisible = true"
+                class="bg-red-500 p-2 rounded-lg lg:w-1/3 text-center"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+          @if (modalEliminarVisible){
+          <!-- Modal para confirmar eliminación de usuario -->
+          <div
+            class="bg-gray-800 w-full lg:w-auto p-10 lg:p-10 absolute rounded-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          >
+            <h1 class="my-2">
+              ¿Seguro que deseas eliminar al usuario {{ usuario.username }}?
+            </h1>
+            <button
+              (click)="deleteUser(usuario.id)"
+              class="bg-green-500 p-2 mx-1 rounded-lg w-1/3 text-center"
+            >
+              Sí
+            </button>
+            <button
+              (click)="modalEliminarVisible = false"
+              class="bg-red-500 p-2 mx-1 rounded-lg w-1/3 text-center"
+            >
+              No
+            </button>
+          </div>
+          } }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  }
+</section>
